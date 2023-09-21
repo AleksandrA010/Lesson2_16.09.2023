@@ -143,19 +143,15 @@ namespace Tasks
                     case "6":
                         Console.WriteLine("Как Вас зовут?");
                         Console.WriteLine($"Привет, {Console.ReadLine()}");
+                        Console.WriteLine("Спросите, знает ли консоль что-то о тайной комнате.");
                         string secretroom = Console.ReadLine();
-                        if (secretroom.ToLower() == "Знаешь ли ты что-то о тайной комнате")
-                        {
-                            Console.WriteLine("Да");
-                            string secretroom1 = Console.ReadLine();
-                            if (secretroom1.ToLower() == "Можешь ли рассказать о ней")
-                            {
-                                Console.WriteLine("Нет");
-                                Thread.Sleep(5000);
-                                Console.WriteLine("Но могу показать!");
-                                Console.BackgroundColor = ConsoleColor.Magenta;
-                            }
-                        }
+                        Console.WriteLine("Да");
+                        Console.WriteLine("Спросите, может ли она что-то рассказать о ней.");
+                        string secretroom1 = Console.ReadLine();
+                        Console.WriteLine("Нет");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("Но могу показать!");
+                        Console.BackgroundColor = ConsoleColor.Magenta;
                         Console.Write("\nВведите следующий номер задания или break завершения работы: ");
                         break;
                     case "7":
