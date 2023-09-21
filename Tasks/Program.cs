@@ -155,6 +155,16 @@ namespace Tasks
                         Console.Write("\nВведите следующий номер задания или break завершения работы: ");
                         break;
                     case "7":
+                        Random rnd = new Random();
+                        string rndbar = Convert.ToString(rnd.Next(10)) + Convert.ToString(rnd.Next(10)) + Convert.ToString(rnd.Next(10)) + Convert.ToString(rnd.Next(10)) + Convert.ToString(rnd.Next(10)) + Convert.ToString(rnd.Next(10)) + Convert.ToString(rnd.Next(10)) + Convert.ToString(rnd.Next(10)) + Convert.ToString(rnd.Next(10)) + Convert.ToString(rnd.Next(10)) + Convert.ToString(rnd.Next(10)) + Convert.ToString(rnd.Next(10));
+                        int cdgt = (Convert.ToInt32(rndbar[1]) + Convert.ToInt32(rndbar[3]) + Convert.ToInt32(rndbar[5]) + Convert.ToInt32(rndbar[7]) + Convert.ToInt32(rndbar[9]) + Convert.ToInt32(rndbar[11])) + 3 * (Convert.ToInt32(rndbar[0]) + Convert.ToInt32(rndbar[2]) + Convert.ToInt32(rndbar[4]) + Convert.ToInt32(rndbar[6]) + Convert.ToInt32(rndbar[8]) + Convert.ToInt32(rndbar[10]));
+                        int lnum = (10 - cdgt % 10) % 10;
+                        Console.WriteLine($"Штрих-код: {rndbar}, Контрольная цифра: {lnum}\n");
+                        Console.Write("12 цифр вводит пользователь:\nВведите слитно первые 12 цифр штрих-кода: ");
+                        string bar = Console.ReadLine();
+                        int cdgt1 = (Convert.ToInt32(bar[1]) + Convert.ToInt32(bar[3]) + Convert.ToInt32(bar[5]) + Convert.ToInt32(bar[7]) + Convert.ToInt32(bar[9]) + Convert.ToInt32(bar[11])) + 3 * (Convert.ToInt32(bar[0]) + Convert.ToInt32(bar[2]) + Convert.ToInt32(bar[4]) + Convert.ToInt32(bar[6]) + Convert.ToInt32(bar[8]) + Convert.ToInt32(bar[10]));
+                        int lnum1 = (10 - cdgt1 % 10) % 10;
+                        Console.WriteLine($"Штрих-код: {bar}, Контрольная цифра: {lnum1}\n");
                         Console.Write("\nВведите следующий номер задания или break завершения работы: ");
                         break;
                     case "8":
