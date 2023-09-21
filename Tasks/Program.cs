@@ -1,6 +1,7 @@
 ﻿using Microsoft.SqlServer.Server;
 using System;
 using System.Linq;
+using System.Threading;
 using System.Xml.Linq;
 
 namespace Tasks
@@ -87,7 +88,6 @@ namespace Tasks
                         for (int i = 0; i < str.Length; i++)
                         {
                             str_1 = Convert.ToString(str[i]);
-                            Console.WriteLine(str_1);
                             if (char.IsUpper(str, i) == true)
                             {
                                 result += str_1.ToLower();
@@ -101,12 +101,61 @@ namespace Tasks
                         Console.Write("\nВведите следующий номер задания или break завершения работы: ");
                         break;
                     case "4":
+                        Console.Write("Введите первую строку: ");
+                        string String = Console.ReadLine();
+                        Console.Write("Введите вторую строку: ");
+                        string subString = Console.ReadLine();
+                        int count = 0;
+                        if (String.Length > 0 & subString.Length > 0)
+                        {
+                            for (int x = 0; x <= String.Length - subString.Length; x++)
+                            {
+                                if (String.Substring(x, subString.Length) == subString)
+                                {
+                                    count++;
+                                }
+                            }
+                            Console.WriteLine($"Количество подстрок в строке: {count}");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Введены недопустимые символы.");
+                        }
                         Console.Write("\nВведите следующий номер задания или break завершения работы: ");
                         break;
                     case "5":
+                        Console.Write("Введите стандартную цену: ");
+                        double normPrice = Convert.ToDouble(Console.ReadLine());
+                        Console.Write("Введите скидку: ");
+                        double salePrice = Convert.ToDouble(Console.ReadLine());
+                        Console.Write("Введите стоимость отпуска: ");
+                        double holidayPrice = Convert.ToDouble(Console.ReadLine());
+                        if (salePrice > 0 & salePrice < 100)
+                        {
+                            Console.WriteLine($"Чтобы заработать на отпуск, вам нужно продать {(int)(holidayPrice / (normPrice * ((double)salePrice / 100)))} бутылок(ки) виски.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Процент долже быть от 1 до 99");
+                        }
                         Console.Write("\nВведите следующий номер задания или break завершения работы: ");
                         break;
                     case "6":
+                        Console.WriteLine("Как Вас зовут?");
+                        Console.WriteLine($"Привет, {Console.ReadLine()}");
+                        string secretroom = Console.ReadLine();
+                        if (secretroom.ToLower() == "Знаешь ли ты что-то о тайной комнате")
+                        {
+                            Console.WriteLine("Да");
+                            string secretroom1 = Console.ReadLine();
+                            if (secretroom1.ToLower() == "Можешь ли рассказать о ней")
+                            {
+                                Console.WriteLine("Нет");
+                                Thread.Sleep(5000);
+                                Console.WriteLine("Но могу показать!");
+                                Console.BackgroundColor = ConsoleColor.Magenta;
+                            }
+                        }
                         Console.Write("\nВведите следующий номер задания или break завершения работы: ");
                         break;
                     case "7":
